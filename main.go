@@ -88,14 +88,16 @@ func main() {
 		}
 	}
 
-	// get alternative info
-	choice, err := s.getString("Add alternative Information?\n[r]ecommended  [o]ther [Enter] to save.")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Getting your choice failed: %v\n", err)
-		return
-	}
+	choice := "none made"
 
 	for choice != "" {
+		// get alternative info
+		choice, err := s.getString("Add alternative Information?\n[r]ecommended  [o]ther [Enter] to save.")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Getting your choice failed: %v\n", err)
+			return
+		}
+
 		switch {
 		case choice == "r":
 			wl["RecommendedBy"], err = s.getString("Who recommended the movie?")
