@@ -95,19 +95,23 @@ func main() {
 		return
 	}
 
-	switch {
-	case choice == "r":
-		wl["RecommendedBy"], err = s.getString("Who recommended the movie?")
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "Getting recommendation failed: %v\n", err)
-			return
-		}
+	for choice != "" {
+		switch {
+		case choice == "r":
+			wl["RecommendedBy"], err = s.getString("Who recommended the movie?")
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Getting recommendation failed: %v\n", err)
+				return
+			}
 
-	case choice == "o":
-		wl["Comment"], err = s.getString("Other Infos?")
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "Getting information failed: %v\n", err)
-			return
+		case choice == "o":
+			wl["Comment"], err = s.getString("Other Infos?")
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Getting information failed: %v\n", err)
+				return
+			}
+		default:
+			continue
 		}
 	}
 
