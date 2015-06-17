@@ -41,7 +41,7 @@ func (s *Scanner) getString(prompt string) (string, error) {
 
 func main() {
 	flag.Parse()
-	movie := flag.Arg(0)
+	movie := strings.Join(flag.Args(), " ")
 	s := NewScanner()
 
 	// ask for movie, if not provided as an arg
