@@ -1,2 +1,2 @@
 # wl
-little script to actually create a watchlist for movies
+little program to actually create a watchlist for movies
